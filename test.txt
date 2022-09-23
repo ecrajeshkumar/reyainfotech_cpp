@@ -1,2 +1,0 @@
-#Testing repo
-Welcome in Git CPP
