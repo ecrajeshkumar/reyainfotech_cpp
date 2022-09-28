@@ -22,7 +22,8 @@ class Derived :public Base{
         cout<<"from Derived: x= "<<x<<endl;
     }    
 };
-int main(){
+int main()
+{
     Base *bp = new Derived();
     bp->display();
     return 0;
