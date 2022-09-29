@@ -14,4 +14,24 @@
     for (auto it=dPairs.begin(); it!=dPairs.end(); it++)
         cout << it->first.first << it->first.second
              << "-" << it->second << " ";
-3.  
+3.  Following are the properties which a derived class doesn’t inherit from its parent class : 
+    1) The base class’s constructors and destructor. 
+    2) The base class’s friend functions.
+    3) Overloaded operators of the base class.
+
+4.  Object Slicing:
+    When a derived class object is assigned to a base class object in C++, the derived class 
+    object’s extra attributes are sliced off (not considered) to generate the base class object; 
+    and this whole process is termed object slicing. In simple words, when extra components 
+    of a derived class are sliced or not used and the priority is given to the base class’s object 
+    this is termed object slicing.
+    In C++, a derived class object can be assigned to a base class object, but the other way is not 
+    possible. To tackle this slicing problem we can use a dynamic pointer.
+    Derived class object sliced from memory allocation.
+    We can avoid the above-unexpected behavior with the use of pointers or references. 
+    Object slicing doesn’t occur when pointers or references to objects are passed as function arguments 
+    since a pointer or reference of any type takes the same amount of memory.
+    Object slicing can be prevented by making the base class function pure virtual thereby disallowing 
+    object creation. It is not possible to create the object of a class that contains a pure virtual 
+    method.
+5.  
