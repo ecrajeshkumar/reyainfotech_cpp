@@ -34,4 +34,21 @@
     Object slicing can be prevented by making the base class function pure virtual thereby disallowing 
     object creation. It is not possible to create the object of a class that contains a pure virtual 
     method.
-5.  
+5.  Hiding of all Overloaded:
+    In C++, function overloading is possible i.e., two or more functions from the same class 
+    can have the same name but different parameters. However, if a derived class redefines the 
+    base class member method then all the base class methods with the same name become hidden in 
+    the derived class.
+    Even if the signature of the derived class method is different, all the overloaded methods in 
+    the base class become hidden.
+    The above facts are true for both static and non static methods.
+    it is possible to unhide it by using the ‘using’ keyword. This keyword brings a base class 
+    method ​or variable into the current class’s scope.
+6.  Friendship in C++: Usually, private and protected members of a class cannot be accessed from outside
+    the same class in which they are declared. However, a friend class has the access to the protected 
+    and private members of the first one. Classes that are ‘friends’ can access not just the public 
+    members, but the private and protected members too.
+    Difference between Inheritance and Friendship in C++: In C++, friendship is not inherited. 
+    If a base class has a friend function, then the function doesn’t become a friend of the derived 
+    class(es).
+    
