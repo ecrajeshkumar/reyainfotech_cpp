@@ -14,6 +14,19 @@
     for (auto it=dPairs.begin(); it!=dPairs.end(); it++)
         cout << it->first.first << it->first.second
              << "-" << it->second << " ";
+			 
+	map<int, string> mapExample;
+	mapExample.insert(pair<int, string>(6, "Example"));
+	 cout<<"Traversing the map with foreach using map's data type\n";
+      for (pair<int, string> mpEx : mapExample ) {
+        cout<<mpEx.first<<" "<<mpEx.second<<endl;
+    }
+   
+    cout<<"\nTraversing the map with foreach using auto keyword\n";
+      for (auto mpEx : mapExample){
+        cout<<mpEx.first<<" "<<mpEx.second<<endl;
+    }
+	
 3.  Following are the properties which a derived class doesn’t inherit from its parent class : 
     1) The base class’s constructors and destructor. 
     2) The base class’s friend functions.
@@ -51,4 +64,85 @@
     Difference between Inheritance and Friendship in C++: In C++, friendship is not inherited. 
     If a base class has a friend function, then the function doesn’t become a friend of the derived 
     class(es).
-    
+7.	Exception:
+	1.	All types (including primitive and pointer) can be thrown as exceptions.
+	2.	There is a special catch called “catch all” that can catch all kinds of exceptions.
+	3.	The keyword throw is used to list exceptions that can be thrown by a function.
+8.	In C++, pre-increment (or pre-decrement) can be used as l-value, but post-increment (or post-decrement) can not be used as l-value.  
+	l-value is simply nothing but the memory location, which has an address.
+	int a = 10;
+	++a = 20; // works
+	--a = 10; // works
+	a++ = 20; // error
+	
+	It is because ++a returns an lvalue, which is basically a reference to the variable to which we can further assign — just like an ordinary variable. It could also be assigned to a reference as follows:
+	int &ref = ++a; // valid
+	int &ref = a++; // invalid
+	Whereas if you recall how a++ works, it doesn’t immediately increment the value it holds. For clarity, you can think of it as getting incremented in the next statement. So what basically happens is that, a++ returns an rvalue, which is basically just a value like the value of an expression that is not stored. You can think of a++ = 20; as follows after being processed:
+
+	int a = 10;
+	// On compilation, a++ is replaced by the value of a which is an rvalue:
+	10 = 20; // Invalid
+10.	copy constructor:
+	we need to define our own copy constructor only if an object has pointers or any runtime allocation of the resource like filehandle, a network connection, etc.
+11.	private destructors:
+	when a class has a private destructor, only dynamic objects of that class can be created. Following is a way to create classes with private destructors and have a function as a friend of the class. The function can only delete the objects.
+	When something is created using dynamic memory allocation, it is the programmer’s responsibility to delete it. So compiler doesn’t bother.
+12.	private Constructor:
+	Yes, Constructor can be defined in private section of class.
+	How to use Constructors in private section?
+	1.	Using Friend Class : If we want that class should not be instantiated by anyone else but only by a friend class.
+	2.  Using Singleton design pattern.
+	3.  Named Constructor Idiom, using static member function.
+13. Explicit Keyword in C++ is used to mark constructors to not implicitly convert types in C++.
+	in C++, if a class has a constructor which can be called with a single argument, then this constructor becomes a conversion constructor because such a constructor allows conversion of the single argument to the class being constructed.
+14.	Pair:
+	Pair is used to combine together two values that may be of different data types. Pair provides a way to store two heterogeneous objects as a single unit. It is basically used if we want to store tuples.
+	
+	Member Functions: 
+	1) Pair_name = make_pair (value1,value2);
+	pair<string, double> myPair = make_pair("GeeksForGeeks is Best", 4.56);
+	pair<int, double> myPair(100, 4.56);
+	pair<string, int> myPair; myPair.first = "Rajesh"; myPair.second = 100;
+	2) swap: This function swaps the contents of one pair object with the contents of another pair object. The pairs must be of the same type. pair1.swap(pair2)
+	pair<int, pair<int, char> > myPair = { 3, { 4, 'a' } };
+15.	Vector:
+	Random access – constant O(1)
+	Insertion or removal of elements at the end – constant O(1)
+	Insertion or removal of elements – linear in the distance to the end of the vector O(N)
+	
+16.	List:
+	As compared to vector, the list has slow traversal, but once a position has been found, insertion and deletion are quick. Normally,
+	when we say a List, we talk about a doubly linked list. For implementing a singly linked list, we use a forward list.
+	Arrays and Vectors are contiguous in nature, therefore the insertion and deletion operations are costlier as compared to the insertion and deletion option in Lists.
+	
+	vector 										List
+	It has contiguous memory.					While it has non-contiguous memory.
+	It is synchronized.							While it is not synchronized.
+	Insertion or removal at the end requires constant time but insertion elsewhere is costly.	Insertion or removal is cheap no matter where in the list it occurs.
+	Vector is thread safe.						List is not thread safe.
+	Random access of elements is possible.		Random access of elements is not possible.
+	Any algorithm that requires a random access iterator can be used with std::vector but cannot be used with std::list. std::sort is one example; that's why std::list has its own sort function.
+17.	Deque
+	Accessing Elements- O(1)
+	Insertion or removal of elements- O(N)
+	Insertion or removal of elements at start or end- O(1)
+18.	Queue: Queues use an encapsulated object of deque or list.
+	time complexity: O(1)
+19. stack
+	time complexity: O(1)
+20. Set: Sets are a type of associative container in which each element has to be unique because the value of the element identifies it.
+	The values are stored in a specific sorted order i.e. either ascending or descending.
+	set does not take multiple same values it only accepts a unique value.
+	The value of the element cannot be modified once it is added to the set, though it is possible to remove and then add the modified value of that element. Thus, the values are immutable.
+	To store the elements in an unsorted(random) order,  unordered_set() can be used.
+	The time complexities for doing various operations on sets are:
+
+	Insertion of Elements – O(log N)
+	Deletion of Elements – O(log N)
+	
+	Set													Unordered Set
+	Set stores elements in a sorted order				Unordered Set stores elements in an unsorted order
+	Set uses Binary Search Trees for implementation		Unordered Set uses Hash Tables for implementation
+	
+	
