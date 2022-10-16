@@ -96,7 +96,70 @@
 	3.  Named Constructor Idiom, using static member function.
 13. Explicit Keyword in C++ is used to mark constructors to not implicitly convert types in C++.
 	in C++, if a class has a constructor which can be called with a single argument, then this constructor becomes a conversion constructor because such a constructor allows conversion of the single argument to the class being constructed.
-14.	Pair:
+
+14. STL
+	Sequence containers: Sequence containers implement data structures that can be accessed sequentially.
+	
+	array: Static contiguous array (class template)
+	vector: Dynamic contiguous array (class template)
+		Random access – constant O(1)
+		Insertion or removal of elements at the end – constant O(1)
+		Insertion or removal of elements – linear in the distance to the end of the vector O(N)
+	deque: Double-ended queue (class template)
+		Accessing Elements- O(1)
+		Insertion or removal of elements- O(N)
+		Insertion or removal of elements at start or end- O(1)
+	forward_list: Singly-linked list (class template)
+	list: Doubly-linked list (class template)
+		As compared to vector, the list has slow traversal, but once a position has been found, insertion and deletion are quick. Normally,
+		when we say a List, we talk about a doubly linked list. For implementing a singly linked list, we use a forward list.
+	Arrays and Vectors are contiguous in nature, therefore the insertion and deletion operations are costlier as compared to the insertion and deletion option in Lists.
+	
+	Associative containers: Associative containers implement sorted data structures that can be quickly searched (O(log n) complexity). 
+	
+	Set: Collection of unique keys, sorted by keys (class template)
+		Stores the values in sorted order.
+		Stores only unique values. 
+		Elements can only be inserted or deleted but cannot be modified. 
+		We can erase more than 1 element by giving the start iterator and end iterator position. 
+		Traversal using iterators. 
+		Sets are implemented as Binary Search Tree.
+		The time complexities for doing various operations on sets are:
+		Insertion of Elements – O(log N)
+		Deletion of Elements – O(log N)
+	Map: Collection of key-value pairs, sorted by keys, keys are unique (class template).
+		Implementation: Red-Black Tree
+		search time: log(n)
+		Insertion time: log(n) + Rebalance
+		Deletion time: log(n) + Rebalance
+	multiset: Collection of keys, sorted by keys (class template)
+		They are associative containers that store multiple elements having equivalent values following a specific order.
+	multimap: Collection of key-value pairs, sorted by keys (class template). multiple elements can have the same keys.
+		Also, it is NOT required that the key-value and mapped value pair have to be unique in this case. One important thing to note about multimap is that multimap keeps all the keys in sorted order always.
+	
+	Unordered associative containers: Unordered associative containers implement unsorted (hashed) data structures that can be quickly searched (O(1) amortized, O(n) worst-case complexity). 
+	
+	unordered_set: Collection of unique keys, hashed by keys. (class template)
+		They are associative containers that store unique elements in no particular order.
+		Note: All other properties are similar to the set. 
+	unordered_map: Collection of key-value pairs(no ordering), hashed by keys, keys are unique. (class template)
+		Implementation :  Hash Table
+		search time, Insertion time, Deletion time  :	O(1) -> Average, O(n) -> Worst Case
+	Note: map is slow as compare to unordered_map.
+	unordered_multiset: Collection of keys, hashed by keys (class template)
+		It is an associative container that contains a set of non-unique elements in unsorted order
+		Note: All other properties are similar to the Multiset.
+	unordered_multimap: Collection of key-value pairs, hashed by keys (class template)
+	
+	Container adaptors: The container adapters are classes that provide a subset of a sequential container's functionality but may provide additional functionality that makes it easier to use containers for certain scenarios.
+	
+	stack: Adapts a container to provide stack (LIFO data structure) (class template).
+		time complexity: O(1)
+	queue: Adapts a container to provide queue (FIFO data structure) (class template).
+		time complexity: O(1)
+	priority_queue: Adapts a container to provide priority queue (class template).
+	
+15.	Pair:
 	Pair is used to combine together two values that may be of different data types. Pair provides a way to store two heterogeneous objects as a single unit. It is basically used if we want to store tuples.
 	
 	Member Functions: 
@@ -106,43 +169,14 @@
 	pair<string, int> myPair; myPair.first = "Rajesh"; myPair.second = 100;
 	2) swap: This function swaps the contents of one pair object with the contents of another pair object. The pairs must be of the same type. pair1.swap(pair2)
 	pair<int, pair<int, char> > myPair = { 3, { 4, 'a' } };
-15.	Vector:
-	Random access – constant O(1)
-	Insertion or removal of elements at the end – constant O(1)
-	Insertion or removal of elements – linear in the distance to the end of the vector O(N)
 	
-16.	List:
-	As compared to vector, the list has slow traversal, but once a position has been found, insertion and deletion are quick. Normally,
-	when we say a List, we talk about a doubly linked list. For implementing a singly linked list, we use a forward list.
-	Arrays and Vectors are contiguous in nature, therefore the insertion and deletion operations are costlier as compared to the insertion and deletion option in Lists.
-	
-	vector 										List
+16.	vector 										List
 	It has contiguous memory.					While it has non-contiguous memory.
 	It is synchronized.							While it is not synchronized.
 	Insertion or removal at the end requires constant time but insertion elsewhere is costly.	Insertion or removal is cheap no matter where in the list it occurs.
 	Vector is thread safe.						List is not thread safe.
 	Random access of elements is possible.		Random access of elements is not possible.
 	Any algorithm that requires a random access iterator can be used with std::vector but cannot be used with std::list. std::sort is one example; that's why std::list has its own sort function.
-17.	Deque
-	Accessing Elements- O(1)
-	Insertion or removal of elements- O(N)
-	Insertion or removal of elements at start or end- O(1)
-18.	Queue: Queues use an encapsulated object of deque or list.
-	time complexity: O(1)
-19. stack
-	time complexity: O(1)
-20. Set: Sets are a type of associative container in which each element has to be unique because the value of the element identifies it.
-	The values are stored in a specific sorted order i.e. either ascending or descending.
-	set does not take multiple same values it only accepts a unique value.
-	The value of the element cannot be modified once it is added to the set, though it is possible to remove and then add the modified value of that element. Thus, the values are immutable.
-	To store the elements in an unsorted(random) order,  unordered_set() can be used.
-	The time complexities for doing various operations on sets are:
-
-	Insertion of Elements – O(log N)
-	Deletion of Elements – O(log N)
-	
-	Set													Unordered Set
-	Set stores elements in a sorted order				Unordered Set stores elements in an unsorted order
-	Set uses Binary Search Trees for implementation		Unordered Set uses Hash Tables for implementation
+17.	
 	
 	
