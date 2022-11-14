@@ -177,6 +177,32 @@
 	Vector is thread safe.						List is not thread safe.
 	Random access of elements is possible.		Random access of elements is not possible.
 	Any algorithm that requires a random access iterator can be used with std::vector but cannot be used with std::list. std::sort is one example; that's why std::list has its own sort function.
-17.	
+17.	Basic Code Review Checklist
+	While reviewing the code, ask yourself the following basic questions:
+	1.	Am I able to understand the code easily?
+	2.	Is the code written following the coding standards/guidelines?
+	3.	Is the same code duplicated more than twice?
+	4.	Can I unit test / debug the code easily to find the root cause?
+	5.	Is this function or class too big? If yes, is the function or class having too many responsibilities?
+	If you feel that the answer is not satisfactory to any of the above questions, then you can suggest/recommend code changes.
 	
-	
+	1. Code formatting:
+		a) Use alignments (left margin), proper white space. Also ensure that code block starting point and ending point are easily identifiable.
+		b) Ensure that proper naming conventions (Pascal, CamelCase etc.) have been followed. 
+		c) Code should fit in the standard 14 inch laptop screen.  There shouldn’t be a need to scroll horizontally to view the code.
+		d) Remove the commented code as this is always a blocker, while going through the code. 
+	2. Architecture:
+		a) The code should follow the defined architecture.
+			Code is in sync with existing code patterns/technologies. Design patterns: Use appropriate design pattern (if it helps), after completely understanding the problem and context.
+	3. Coding best practices:
+		1. No hard coding, use constants/configuration values.
+		2. Group similar values under an enumeration (enum).
+		3. Comments – Do not write comments for what you are doing, instead write comments on why you are doing. Specify about any hacks, workaround and temporary fixes. Additionally, mention pending tasks in your to-do comments, which can be tracked easily.
+		4. Avoid multiple if/else blocks.
+		5. Use framework features, wherever possible instead of writing custom code
+	4. Non Functional requirements:
+		a) Maintainability (Supportability) – The application should require the least amount of effort to support in near future. It should be easy to identify and fix a defect.
+			1. Readability, 2. Testability, 3. Debuggability, 4. Configurability.
+		b) Reusability.
+		c) Reliability.
+18. 
