@@ -81,6 +81,17 @@ class Subscriber{
         virtual ~Subscriber() = default;
 };
 
+class MusicSubscriber : public Subscriber{
+    private:
+        string name;
+    public:
+        MusicSubscriber(string str):name(move(str)){
+        }
+        void update(const string& msg) override{
+            cout<<name << " received: "<<msg <<"\n";
+        }
+};
+
 class MusicChannel{
     private:
         vector<Subscriber*> subscribers;
@@ -92,17 +103,6 @@ class MusicChannel{
             for(auto* subscriber: subscribers){
                 subscriber->update(msg);
             }
-        }
-};
-
-class MusicSubscriber : public Subscriber{
-    private:
-        string name;
-    public:
-        MusicSubscriber(string str):name(move(str)){
-        }
-        void update(const string& msg) override{
-            cout<<name << " received: "<<msg <<"\n";
         }
 };
 
@@ -138,10 +138,5 @@ int main(){
     musicChannel.notify("Don song added");
     cout<<"Observer Pattern end.\n";
     /////////////////////////////////////////////////////////////
-
-
-
-
-
     return 0;
 }
