@@ -1,4 +1,5 @@
 /*
+std::optional → nullable values.
     Function that may or may not return a value there we use return type as std::optional<T>
     std::optional<T> → A wrapper that may contain a value of type T or be empty.
     has_value() → Checks if a value is present.
