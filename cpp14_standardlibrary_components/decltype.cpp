@@ -41,6 +41,11 @@ int main(){
     // This call returns 3 of double type
     cout << findMin(5.4, 3) << endl;
     cout<<"End************************"<<endl;
+
+    int x = 10;
+    decltype(x) a;       // a is int
+    decltype((x)) b = x; // b is int& (because (x) is an lvalue expression)
+
  
     return 0;
 }
