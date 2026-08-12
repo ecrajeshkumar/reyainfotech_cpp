@@ -2,28 +2,31 @@
   
 using namespace std;
   
-class A {
+class Base {
  public:
-   A & operator= (A &a) { 
+   Base & operator= (Base &a) { 
        cout<<" base class assignment operator called "<<endl; 
        return *this;
    }
+   void display() { cout<<" base class display function called "<<endl; }
 };
   
-class B: public A {
+class Derived: public Base {
     public:
-    B & operator= (B &b) { 
+    Derived & operator= (Derived &b) { 
         cout<<" Derived class assignment operator called "<<endl; 
         return *this;
     }
+    void display() { cout<<" Derived class display function called "<<endl; }
 };
 
 int main()
 {
-  B a, b;
-    a.A::operator=(b); //calling base class assignment operator function 
-                    // using derived class
-    a = b;
+  Derived d1, d2;
+    d1.Base::operator=(d2); //calling base class assignment operator function using derived class object
+    d1.display();
+    d1 = d2;
+    d1.display();
   
   return 0;
 }

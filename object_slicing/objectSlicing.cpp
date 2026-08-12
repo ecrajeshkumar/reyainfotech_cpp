@@ -6,7 +6,7 @@ class Base {
 };
  
 class Derived : public Base {
-    int z;
+    int z, w;
 };
  
 int main() {

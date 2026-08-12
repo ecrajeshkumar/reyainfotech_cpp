@@ -24,7 +24,7 @@
 #include <iostream>
 
 int operationSum(int num){
-    using namespace std::chrono_literals; 
+    using namespace std::chrono_literals;
     int sum{};
     for(int i = 0; i < num; ++i){
         sum+=i;

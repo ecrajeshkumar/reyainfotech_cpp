@@ -13,8 +13,8 @@ void printFrequency(string lstr){
     while(ss >> s){
         mp[s]++;
     }
-    for(auto &s : mp){
-        cout<<s.first <<" "<<s.second<<"\n";
+    for(auto &m : mp){
+        cout<<m.first <<" "<<m.second<<"\n";
     }
 
 }
