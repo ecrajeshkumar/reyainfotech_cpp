@@ -1,6 +1,6 @@
 /*
-    C++14 was a relatively small update over C++11, but it introduced several useful language and library features such as generic lambdas, 
-    variable templates, std::make_unique, and binary literals. 
+    C++14 was a relatively small update over C++11, but it introduced several useful language and library features such as 
+    generic lambdas, variable templates, std::make_unique, and binary literals. 
 */
 
 
@@ -14,7 +14,8 @@ int main(){
 
     auto sum = [](int a, int b){
         return (a + b);
-    };cout << "sum = " << sum(10, 20) << endl;
+    };
+    cout << "sum = " << sum(10, 20) << endl;
     //}(10,20);
     //cout<<"sum = "<<sum<<endl;
 

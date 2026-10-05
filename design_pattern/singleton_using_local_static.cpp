@@ -5,12 +5,20 @@
 
 using namespace std;
 
+/*
+    emplace_back constructs an element directly in place at the end of the container, 
+    instead of creating a temporary object and then copying or moving it in.
+
+    push_back: Requires you to already have an object, then copies or moves it into the container.
+    emplace_back: Constructs the object inside the container using the arguments you pass. This avoids an extra copy/move.
+*/
+
 // ✅ Meyers' Singleton with real-time safety
 class Logger{
     public:
         static Logger& getInstance(){
             /*
-                Function‑local static (like in Meyers’ Singleton)
+                Function local static (like in Meyers’ Singleton)
                 Initialized the first time the function is called. Means only one thread initilize other thread use same instance by created first thread.
                 C++11 and later: initialization is guaranteed thread‑safe.
                 Lifetime: until program termination.
@@ -36,15 +44,15 @@ class Logger{
         Logger(){
             std::cout << "Logger initialized\n";
         }
-        
+        // prevent destructor order issue
+        //~Logger() = default;  // Not needed
+        ~Logger() { std::cout << "Logger destroyed\n"; }
+
         // prevent copy/move
         Logger(const Logger&) = delete;
         Logger& operator=(const Logger&) = delete;
         Logger(Logger&&) = delete;
         Logger& operator=(Logger&&) = delete;
-        
-        // prevent destructor order issue
-        ~Logger() = default;
 };
 
 // ✅ Example usage in concurrent system

@@ -6,7 +6,7 @@
 */ 
 #include <iostream>
 using namespace std;
- 
+
 class Base {
 public:
     inline virtual void who() { cout << "I am Base\n"; }

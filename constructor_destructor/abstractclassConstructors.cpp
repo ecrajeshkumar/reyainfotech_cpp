@@ -33,11 +33,11 @@ public:
 int main(void){
     Derived d(4, 5);
     d.fun();
-   
+   cout<<"=======================\n";
   //object creation using pointer of base class
     Base *ptr = new Derived(6,7);
     ptr->fun();
-    
+    cout<<"=======================\n";
     delete ptr;
     return 0;
 }

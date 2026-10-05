@@ -1,7 +1,4 @@
 /*
-Type inference means the compiler can deduce the type automatically instead of you writing it explicitly.
-This makes code shorter, safer, and easier to maintain.
-
 auto keyword : 
 Lets the compiler deduce the type from the initializer.
 decltype keyword :

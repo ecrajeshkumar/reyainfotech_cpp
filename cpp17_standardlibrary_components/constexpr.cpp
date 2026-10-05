@@ -13,6 +13,10 @@ constexpr int square(int num){
     return num*num;
 }
 
+int factorial(int num){
+    return (num <= 1) ? 1 : num*factorial(num-1)
+}
+
 int main(){
     // compile-time constant
     constexpr  int val = square(5); // Evalute at compile time
@@ -22,6 +26,8 @@ int main(){
     int n;
     std::cout<< "Enter number: \n";
     std::cin>>n;
-    std::cout<< "Run-time quare: " << square(n) << std::endl;
+    std::cout<< "Run-time square: " << square(n) << std::endl;
+
+    std::cout<< "Run-time square: " << factorial(5) << std::endl;
     return 0;
 }

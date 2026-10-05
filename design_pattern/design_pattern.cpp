@@ -27,6 +27,7 @@ class Singleton{
         Singleton(){
             cout<<"Singleton inilitize\n";
         }
+        ~Logger() { std::cout << "Logger destroyed\n"; }
         // Prevent copy/move
         Singleton(const Singleton&) = delete;
         Singleton(Singleton&&) = delete;
@@ -68,6 +69,12 @@ class Factory{
         static unique_ptr<Product>CreateProduct(string product){
             if(product == "A") return make_unique<CreateProductA>();
             else return make_unique<CreateProductB>();
+        }
+        static Product* createProduct(string product){
+            if(product == "A")
+                return new CreateProductA();
+            else 
+                return new CreateProductB();
         }
 };
 
@@ -122,7 +129,10 @@ int main(){
     // unique_ptr<Product> factory = Factory::CreateProduct("A");
     auto factory = Factory::CreateProduct("A");
     factory->use();
+    factory = Factory::createProduct("B");
+    factory->use();
     cout<<"Factory Pattern end.\n";
+    
     /////////////////////////////////////////////////////////////
     MusicChannel musicChannel;
     

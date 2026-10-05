@@ -1,5 +1,25 @@
 /*
- * const_cast is used to cast away the constness of variables.
+ * It is specifically used to add or remove const (or volatile) qualifiers from a variable.
+    const_cast → removes/adds const/volatile qualifiers.
+    Safe when the original object is non-const.
+    Dangerous if you try to modify a truly const object (undefined behavior).
+    Commonly used when interfacing with legacy APIs that don’t use const correctly.
+    ===========================================================================
+    const int x = 10;
+    int* p = const_cast<int*>(&x);
+    *p = 20;  // ❌ Undefined behavior if x was truly const
+    cout<<*p<<endl; //20
+    ===========================================================================
+    void process(const int& val) {
+    int& nonConst = const_cast<int&>(val);
+    nonConst += 5; // Safe if caller passed a non-const int
+
+    int main() {
+    int a = 10;
+    process(a); // modifies a to 15, it is save because a is not const
+    cout<<a;
+    }
+    ===========================================================================
  */
 
 #include <iostream>

@@ -1,5 +1,6 @@
 /*
-    hey allow you to define templated constants or variables, not just classes or functions. This makes generic programming cleaner and avoids boilerplate.
+    they allow you to define templated constants or variables, not just classes or functions. 
+    This makes generic programming cleaner and avoids boilerplate.
 */
 
 #include <iostream>

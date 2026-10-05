@@ -1,8 +1,8 @@
 /*
-A class template defined in the header <functional>
-A general-purpose polymorphic function wrapper that can store and call any callable target (functions, lambdas, functors, 
-bind expressions).
+std::function is a general-purpose function wrapper.
+ It can store and call any callable object — normal functions, lambdas, functors (objects with operator()), or even bind expressions.
 
+  A callback is a function you hand over to another function, so it can invoke your code later when the right moment comes.
 */
 
 #include <iostream>
